@@ -17,7 +17,7 @@ router.use(express.urlencoded({ extended: true }));
 //   next();
 // });
 
-const strings = ['wow', 'yup'];
+const strings = [{ id: '123', item: 'wow' }, { id: '456', item: 'yup' }];
 
 router.get('/', (req, res, next) => {
   try {
