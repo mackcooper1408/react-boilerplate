@@ -12,6 +12,9 @@ import {
   LOAD_STRINGS,
   LOAD_STRINGS_SUCCESS,
   LOAD_STRINGS_ERROR,
+  ADD_STRING,
+  ADD_STRING_SUCCESS,
+  ADD_STRING_ERROR,
 } from './constants';
 
 // The initial state of the App
@@ -37,6 +40,21 @@ const appReducer = (state = initialState, action) =>
         break;
 
       case LOAD_STRINGS_ERROR:
+        draft.error = action.error;
+        draft.loading = false;
+        break;
+
+      case ADD_STRING:
+        draft.loading = true;
+        draft.error = false;
+        break;
+
+      case ADD_STRING_SUCCESS:
+        draft.strings = action.strings;
+        draft.loading = false;
+        break;
+
+      case ADD_STRING_ERROR:
         draft.error = action.error;
         draft.loading = false;
         break;
