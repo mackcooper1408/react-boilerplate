@@ -30,7 +30,9 @@ export function StringsPage({ loading, error, strings, onLoad }) {
   useInjectSaga({ key, saga });
 
   useEffect(() => {
-    onLoad();
+    if (!strings) {
+      onLoad();
+    }
   }, []);
 
   if (loading) return <h1>LOADING...</h1>;
@@ -41,9 +43,6 @@ export function StringsPage({ loading, error, strings, onLoad }) {
       <h1>
         <FormattedMessage {...messages.header} />
       </h1>
-      {/* <button type="button" onClick={getList}>
-        Get the list
-      </button> */}
       <ul>
         {strings && strings.map(({ id, item }) => <li key={id}>{item}</li>)}
       </ul>
