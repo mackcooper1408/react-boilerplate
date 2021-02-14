@@ -1,23 +1,12 @@
 const express = require('express');
+const { v4: uuid } = require('uuid');
 const logger = require('../logger');
-// const app = express();
 const router = express.Router();
-
-// useful error class to throw
-// const { NotFoundError } = require('./expressError');
 
 // process JSON body => req.body
 router.use(express.json());
 
-// process traditional form data => req.body
-router.use(express.urlencoded({ extended: true }));
-
-// router.use((req, res, next) => {
-//   console.log('wow');
-//   next();
-// });
-
-const strings = [{ id: '123', item: 'wow' }, { id: '456', item: 'yup' }];
+const strings = [{ id: uuid(), item: 'wow' }, { id: uuid(), item: 'yup' }];
 
 router.get('/', (req, res, next) => {
   try {
@@ -30,7 +19,9 @@ router.get('/', (req, res, next) => {
 router.post('/', (req, res, next) => {
   try {
     const newString = req.body.string;
-    strings.unshift(newString);
+    const newId = uuid();
+    const newItem = { id: newId, item: newString };
+    strings.unshift(newItem);
     return res.json({ strings });
   } catch (err) {
     return next(err);
