@@ -7,17 +7,31 @@
 
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import { Link } from 'react-router-dom';
+import LinkItem from '../../components/LinkItem';
+import H1 from '../../components/H1';
+import List from '../../components/List';
 import messages from './messages';
+
+const items = [
+  {
+    id: '1',
+    text: 'See the Strings',
+    link: '/strings',
+  },
+  {
+    id: '2',
+    text: 'Add a String',
+    link: '/add',
+  },
+];
 
 export default function HomePage() {
   return (
     <div>
-      <h1>
+      <H1>
         <FormattedMessage {...messages.header} />
-      </h1>
-      <Link to="/strings">See the Strings</Link>
-      <Link to="/add">Add a String</Link>
+      </H1>
+      <List items={items} component={LinkItem} />
     </div>
   );
 }
