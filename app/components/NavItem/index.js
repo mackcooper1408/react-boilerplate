@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Item from './Item';
 import Wrapper from './Wrapper';
+import './NavItem.css';
 
 function NavItem({ text, link }) {
   return (
     <Wrapper>
-      <Item as={Link} to={link}>
+      <Item activeClassName="is-active" exact as={NavLink} to={link}>
         {text}
       </Item>
     </Wrapper>

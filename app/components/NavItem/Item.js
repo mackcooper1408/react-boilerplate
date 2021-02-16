@@ -13,9 +13,6 @@ const Item = styled.link`
   &:hover {
     transform: scale(1.1);
   }
-  &:focus {
-    border-bottom: 1px solid #eee;
-  }
 `;
 
 export default Item;
