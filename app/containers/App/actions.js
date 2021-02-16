@@ -68,10 +68,10 @@ export function addString() {
  *
  * @return {object}      An action object with a type of ADD_STRING_SUCCESS passing the strings
  */
-export function stringAdded(stringData) {
+export function stringAdded(strings) {
   return {
     type: ADD_STRING_SUCCESS,
-    stringData,
+    strings,
   };
 }
 
