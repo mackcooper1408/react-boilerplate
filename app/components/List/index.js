@@ -10,9 +10,7 @@ function List({ items, component }) {
 
   // If we have item, render them
   if (items) {
-    content = items.map(item => (
-      <ComponentToRender key={`item-${item.id}`} {...item} />
-    ));
+    content = items.map(item => <ComponentToRender key={item.id} {...item} />);
   } else {
     // Otherwise render a single component
     content = <ComponentToRender />;
@@ -27,7 +25,7 @@ function List({ items, component }) {
 
 List.propTypes = {
   component: PropTypes.elementType.isRequired,
-  items: PropTypes.array,
+  items: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
 };
 
 export default List;
