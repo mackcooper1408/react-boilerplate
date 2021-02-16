@@ -2,11 +2,37 @@
 
 exports[`<App /> should render and match the snapshot 1`] = `
 <div>
+  <Navbar
+    navItems={
+      Array [
+        Object {
+          "id": "3e3716e6-0701-47e7-bff4-8f40930813a4",
+          "link": "/strings",
+          "text": "Strings",
+        },
+        Object {
+          "id": "4314ccaf-6869-445a-8840-cd2c835243eb",
+          "link": "/add",
+          "text": "Add",
+        },
+      ]
+    }
+  />
   <Switch>
     <Route
       component={[Function]}
       exact={true}
       path="/"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/strings"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/add"
     />
     <Route
       component={[Function]}

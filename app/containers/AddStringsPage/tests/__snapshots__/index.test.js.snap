@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AddStringsPage /> should render and match the snapshot 1`] = `
+<div>
+  <h1
+    class="H1-tncdg6-0 gNmgOQ"
+  >
+    <span>
+      Add a new string!
+    </span>
+  </h1>
+  <form
+    class="Form-sc-14ymqqc-0 eOSZXF"
+  >
+    <div
+      class="Wrapper-sc-1jh827d-0 clkZmd"
+    >
+      <input
+        class="Input-if1qjg-0 hmsAgH"
+        placeholder="add your string..."
+        type="text"
+        value=""
+      />
+    </div>
+    <button
+      class="Button-xkfary-0 iGPRoC"
+      type="submit"
+    >
+      submit
+    </button>
+  </form>
+</div>
+`;
