@@ -22,6 +22,9 @@ import {
   makeSelectLoading,
   makeSelectStrings,
 } from '../App/selectors';
+import H1 from '../../components/H1';
+import List from '../../components/List';
+import ListItem from '../../components/ListItem';
 
 const key = 'strings';
 
@@ -35,17 +38,17 @@ export function StringsPage({ loading, error, strings, onLoad }) {
     }
   }, []);
 
-  if (loading) return <h1>LOADING...</h1>;
-  if (error) return <h1>{error}</h1>;
+  if (loading) return <H1>LOADING...</H1>;
+  if (error) return <H1>{error}</H1>;
 
   return (
     <div>
-      <h1>
+      <H1>
         <FormattedMessage {...messages.header} />
-      </h1>
-      <ul>
-        {strings && strings.map(({ id, item }) => <li key={id}>{item}</li>)}
-      </ul>
+      </H1>
+      {strings && <List items={strings} component={ListItem} />}
+      {/* {strings && strings.map(({ id, item }) => <li key={id}>{item}</li>)} */}
+      {/* </List> */}
     </div>
   );
 }

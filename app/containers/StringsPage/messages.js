@@ -10,6 +10,6 @@ export const scope = 'app.containers.StringsPage';
 export default defineMessages({
   header: {
     id: `${scope}.header`,
-    defaultMessage: 'This is the Strings Page container!',
+    defaultMessage: 'Here are all the strings!',
   },
 });
