@@ -14,12 +14,20 @@ import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import StringsPage from 'containers/StringsPage/Loadable';
 import AddStringsPage from 'containers/AddStringsPage/Loadable';
+import { v4 as uuid } from 'uuid';
 
 import GlobalStyle from '../../global-styles';
+import Navbar from '../../components/Navbar';
+
+const navItems = [
+  { id: uuid(), text: 'Strings', link: '/strings' },
+  { id: uuid(), text: 'Add', link: '/add' },
+];
 
 export default function App() {
   return (
     <div>
+      <Navbar navItems={navItems} />
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/strings" component={StringsPage} />
