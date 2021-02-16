@@ -13,13 +13,18 @@ import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
 import { useInjectReducer } from 'utils/injectReducer';
 import { useInjectSaga } from 'utils/injectSaga';
-import { addString } from '../App/actions';
+import history from 'utils/history';
+import H1 from 'components/H1';
+import FormInput from 'components/FormInput';
+import { addString } from 'containers/App/actions';
 import saga from './saga';
 import reducer from './reducer';
 import messages from './messages';
 import { changeStringData } from './actions';
 import { makeSelectStringData } from './selectors';
 import { makeSelectError, makeSelectLoading } from '../App/selectors';
+import Form from './Form';
+import Button from './Button';
 
 const key = 'add';
 
@@ -33,24 +38,24 @@ export function AddStringsPage({
   useInjectReducer({ key, reducer });
   useInjectSaga({ key, saga });
 
-  if (loading) return <h1>Loading...</h1>;
+  if (loading) return <H1>Loading...</H1>;
 
-  if (error) return <h1>{error}</h1>;
+  if (error) return <H1>{error}</H1>;
 
   return (
     <div>
-      <h1>
+      <H1>
         <FormattedMessage {...messages.header} />
-      </h1>
-      <form onSubmit={handleSubmit}>
-        <input
+      </H1>
+      <Form onSubmit={handleSubmit}>
+        <FormInput
           type="text"
-          placeholder="new string"
+          placeholder="add your string..."
           onChange={handleChange}
           value={stringData}
         />
-        <button type="submit">submit</button>
-      </form>
+        <Button type="submit">submit</Button>
+      </Form>
     </div>
   );
 }
@@ -78,6 +83,8 @@ export function mapDispatchToProps(dispatch) {
     handleSubmit: evt => {
       evt.preventDefault();
       dispatch(addString());
+      dispatch(changeStringData(''));
+      history.push('/strings');
     },
   };
 }

@@ -10,6 +10,6 @@ export const scope = 'app.containers.AddStringsPage';
 export default defineMessages({
   header: {
     id: `${scope}.header`,
-    defaultMessage: 'This is the Add Strings container!',
+    defaultMessage: 'Add a new string!',
   },
 });
