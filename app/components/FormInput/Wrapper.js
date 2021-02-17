@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
+  position: relative;
   padding: 0;
-  margin: 0;
+  margin: 0.25em;
   word-break: normal;
-  width: 50%;
   overflow: hidden;
 `;
 
