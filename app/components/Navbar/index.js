@@ -6,21 +6,9 @@ import Wrapper from './Wrapper';
 import NavItem from '../NavItem';
 
 function Navbar({ navItems }) {
-  let content = <div />;
-
-  // If we have navItems, render them
-  if (navItems) {
-    content = navItems.map(navItem => (
-      <NavItem
-        key={`item-${navItem.id}`}
-        text={navItem.text}
-        link={navItem.link}
-      />
-    ));
-  } else {
-    // Otherwise render a single component
-    content = <NavItem />;
-  }
+  const content = navItems.map(({ id, text, link }) => (
+    <NavItem key={id} text={text} link={link} />
+  ));
 
   return (
     <Wrapper>
