@@ -6,30 +6,27 @@
  */
 
 import React, { memo, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import { FormattedMessage } from 'react-intl';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { useInjectReducer } from 'utils/injectReducer';
+import PropTypes from 'prop-types';
+import H1 from 'components/H1';
+import List from 'components/List';
+import ListItem from 'components/ListItem';
 import { useInjectSaga } from 'utils/injectSaga';
-import { FormattedMessage } from 'react-intl';
-import { loadStrings } from '../App/actions';
-import saga from './saga';
-import reducer from '../App/reducer';
-import messages from './messages';
+import { loadStrings } from 'containers/App/actions';
 import {
   makeSelectError,
   makeSelectLoading,
   makeSelectStrings,
-} from '../App/selectors';
-import H1 from '../../components/H1';
-import List from '../../components/List';
-import ListItem from '../../components/ListItem';
+} from 'containers/App/selectors';
+import saga from './saga';
+import messages from './messages';
 
 const key = 'strings';
 
 export function StringsPage({ loading, error, strings, onLoad }) {
-  useInjectReducer({ key, reducer });
   useInjectSaga({ key, saga });
 
   useEffect(() => {
@@ -39,6 +36,7 @@ export function StringsPage({ loading, error, strings, onLoad }) {
   }, []);
 
   if (loading) return <H1>LOADING...</H1>;
+
   if (error) return <H1>{error}</H1>;
 
   return (
@@ -47,8 +45,6 @@ export function StringsPage({ loading, error, strings, onLoad }) {
         <FormattedMessage {...messages.header} />
       </H1>
       {strings && <List items={strings} component={ListItem} />}
-      {/* {strings && strings.map(({ id, item }) => <li key={id}>{item}</li>)} */}
-      {/* </List> */}
     </div>
   );
 }
