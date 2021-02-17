@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from 'react-testing-library';
+import { fireEvent, render } from 'react-testing-library';
 import { IntlProvider } from 'react-intl';
 import { Provider } from 'react-redux';
 import { browserHistory } from 'react-router-dom';
@@ -29,6 +29,63 @@ describe('<AddStringsPage />', () => {
     expect(firstChild).toMatchSnapshot();
   });
 
+  it('should update string data on typing', () => {
+    const mockOnChange = jest.fn();
+    const { getByPlaceholderText } = render(
+      <Provider store={store}>
+        <IntlProvider locale="en">
+          <AddStringsPage handleChange={mockOnChange} />
+        </IntlProvider>
+      </Provider>,
+    );
+    expect(mockOnChange).toHaveBeenCalledTimes(0);
+    const input = getByPlaceholderText(/string/i);
+    fireEvent.change(input, { target: { value: 't' } });
+    fireEvent.change(input, { target: { value: 'te' } });
+    fireEvent.change(input, { target: { value: 'tes' } });
+    fireEvent.change(input, { target: { value: 'test' } });
+    expect(mockOnChange).toHaveBeenCalledTimes(4);
+    expect(input.value).toEqual('test');
+  });
+
+  it('should submit string', () => {
+    const mockOnSubmit = jest.fn();
+    const mockOnChange = jest.fn();
+    const { getByText } = render(
+      <Provider store={store}>
+        <IntlProvider locale="en">
+          <AddStringsPage
+            handleSubmit={mockOnSubmit}
+            handleChange={mockOnChange}
+            stringData="test"
+          />
+        </IntlProvider>
+      </Provider>,
+    );
+    const submitBtn = getByText(/submit/i);
+    fireEvent.click(submitBtn);
+    expect(mockOnSubmit).toHaveBeenCalled();
+  });
+
+  it('should not submit string if empty', () => {
+    const mockOnSubmit = jest.fn();
+    const mockOnChange = jest.fn();
+    const { getByText } = render(
+      <Provider store={store}>
+        <IntlProvider locale="en">
+          <AddStringsPage
+            handleSubmit={mockOnSubmit}
+            handleChange={mockOnChange}
+            stringData=""
+          />
+        </IntlProvider>
+      </Provider>,
+    );
+    const submitBtn = getByText(/submit/i);
+    fireEvent.click(submitBtn);
+    expect(mockOnSubmit).not.toHaveBeenCalled();
+  });
+
   describe('mapDispatchToProps', () => {
     describe('handleChange', () => {
       it('should be injected', () => {
@@ -40,7 +97,7 @@ describe('<AddStringsPage />', () => {
       it('should dispatch changeStringData when called', () => {
         const dispatch = jest.fn();
         const result = mapDispatchToProps(dispatch);
-        const stringData = 'mxstbr';
+        const stringData = 'test-string';
         result.handleChange({ target: { value: stringData } });
         expect(dispatch).toHaveBeenCalledWith(changeStringData(stringData));
       });
@@ -62,14 +119,6 @@ describe('<AddStringsPage />', () => {
         expect(preventDefault).toHaveBeenCalled();
         expect(dispatch).toHaveBeenCalledWith(addString());
       });
-
-      // it('should preventDefault if called with event', () => {
-      //   const preventDefault = jest.fn();
-      //   const result = mapDispatchToProps(() => {});
-      //   const evt = { preventDefault };
-      //   result.handleSubmit(evt);
-      //   expect(preventDefault).toHaveBeenCalledWith();
-      // });
     });
   });
 });
