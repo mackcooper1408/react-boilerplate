@@ -6,7 +6,10 @@ const router = express.Router();
 // process JSON body => req.body
 router.use(express.json());
 
-const strings = [{ id: uuid(), item: 'wow' }, { id: uuid(), item: 'yup' }];
+const strings = [
+  { id: uuid(), item: 'first string' },
+  { id: uuid(), item: 'second string' },
+];
 
 router.get('/', (req, res, next) => {
   try {
