@@ -41,13 +41,13 @@ describe('<StringsPage />', () => {
     expect(mockOnLoad).toHaveBeenCalled();
   });
 
-  // TODO: update this
-  xit('should not call onLoad if store contains strings', () => {
+  it('should not call onLoad if store contains strings', () => {
+    const strings = [{ id: '1', item: 'test1' }, { id: '2', item: 'test2' }];
     const mockOnLoad = jest.fn();
     render(
       <Provider store={store}>
         <IntlProvider locale="en">
-          <StringsPage onLoad={mockOnLoad} />
+          <StringsPage onLoad={mockOnLoad} strings={strings} />
         </IntlProvider>
       </Provider>,
     );
