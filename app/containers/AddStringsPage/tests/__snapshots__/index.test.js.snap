@@ -10,20 +10,21 @@ exports[`<AddStringsPage /> should render and match the snapshot 1`] = `
     </span>
   </h1>
   <form
-    class="Form-sc-14ymqqc-0 eOSZXF"
+    class="Form-sc-14ymqqc-0 fxjlHW"
   >
     <div
-      class="Wrapper-sc-1jh827d-0 clkZmd"
+      class="Wrapper-sc-1jh827d-0 jKiImt"
     >
       <input
-        class="Input-if1qjg-0 hmsAgH"
+        class="Input-if1qjg-0 bXDayC"
         placeholder="add your string..."
         type="text"
         value=""
       />
     </div>
     <button
-      class="Button-xkfary-0 iGPRoC"
+      class="Button-xkfary-0 yiLvd"
+      disabled=""
       type="submit"
     >
       submit

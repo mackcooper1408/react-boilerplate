@@ -6,12 +6,12 @@ exports[`<App /> should render and match the snapshot 1`] = `
     navItems={
       Array [
         Object {
-          "id": "3e3716e6-0701-47e7-bff4-8f40930813a4",
+          "id": "1",
           "link": "/strings",
           "text": "Strings",
         },
         Object {
-          "id": "4314ccaf-6869-445a-8840-cd2c835243eb",
+          "id": "2",
           "link": "/add",
           "text": "Add",
         },
