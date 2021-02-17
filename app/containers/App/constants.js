@@ -1,17 +1,10 @@
 /*
- * AppConstants
- * Each action has a corresponding type, which the reducer knows and picks up on.
- * To avoid weird typos between the reducer and the actions, we save them as
- * constants here. We prefix them with 'yourproject/YourComponent' so we avoid
- * reducers accidentally picking up actions they shouldn't.
- *
- * Follow this format:
- * export const YOUR_ACTION_CONSTANT = 'yourproject/YourContainer/YOUR_ACTION_CONSTANT';
+ * App Constants
  */
 
-export const LOAD_STRINGS = 'LOAD_STRINGS';
-export const LOAD_STRINGS_SUCCESS = 'LOAD_STRINGS_SUCCESS';
-export const LOAD_STRINGS_ERROR = 'LOAD_STRINGS_ERROR';
-export const ADD_STRING = 'ADD_STRING';
-export const ADD_STRING_SUCCESS = 'ADD_STRING_SUCCESS';
-export const ADD_STRING_ERROR = 'ADD_STRING_ERROR';
+export const LOAD_STRINGS = 'dmi-tech-screen/App/LOAD_STRINGS';
+export const LOAD_STRINGS_SUCCESS = 'dmi-tech-screen/App/LOAD_STRINGS_SUCCESS';
+export const LOAD_STRINGS_ERROR = 'dmi-tech-screen/App/LOAD_STRINGS_ERROR';
+export const ADD_STRING = 'dmi-tech-screen/App/ADD_STRING';
+export const ADD_STRING_SUCCESS = 'dmi-tech-screen/App/ADD_STRING_SUCCESS';
+export const ADD_STRING_ERROR = 'dmi-tech-screen/App/ADD_STRING_ERROR';
