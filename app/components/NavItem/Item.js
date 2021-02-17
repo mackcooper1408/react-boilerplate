@@ -1,17 +1,20 @@
 import styled from 'styled-components';
 
-const Item = styled.link`
+const Item = styled.a`
   color: white;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100%;
-  align-items: center;
   text-decoration: none;
   transition: all 0.2s;
   padding: 0 1em;
   &:hover {
     transform: scale(1.1);
+  }
+  &.is-active {
+    border-bottom: 1px solid #eee;
   }
 `;
 
