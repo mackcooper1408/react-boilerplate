@@ -2,8 +2,7 @@
  *
  * App.js
  *
- * This component is the skeleton around the actual pages, and should only
- * contain code that should be seen on all pages. (e.g. navigation bar)
+ * This component is the skeleton around the actual pages
  *
  */
 
@@ -14,14 +13,14 @@ import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import StringsPage from 'containers/StringsPage/Loadable';
 import AddStringsPage from 'containers/AddStringsPage/Loadable';
-import { v4 as uuid } from 'uuid';
 
 import GlobalStyle from '../../global-styles';
 import Navbar from '../../components/Navbar';
 
+// NavLink items | id used for unique key props
 const navItems = [
-  { id: uuid(), text: 'Strings', link: '/strings' },
-  { id: uuid(), text: 'Add', link: '/add' },
+  { id: '1', text: 'Strings', link: '/strings' },
+  { id: '2', text: 'Add', link: '/add' },
 ];
 
 export default function App() {
