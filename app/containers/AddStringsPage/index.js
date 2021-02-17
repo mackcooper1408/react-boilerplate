@@ -1,7 +1,7 @@
 /*
- * Add String Page
+ * AddStringsPage
  *
- * This is the first thing users see of our App, at the '/' route
+ * This is where users can add a new string to the API
  *
  */
 
