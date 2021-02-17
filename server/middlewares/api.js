@@ -1,3 +1,7 @@
+/**
+ * API middleware for getting and adding strings
+ */
+
 const express = require('express');
 const { v4: uuid } = require('uuid');
 const logger = require('../logger');
@@ -11,6 +15,8 @@ const strings = [
   { id: uuid(), item: 'second string' },
 ];
 
+// GET array of strings
+// return = { strings: [{id, item}...]}
 router.get('/', (req, res, next) => {
   try {
     return res.json({ strings });
@@ -19,6 +25,9 @@ router.get('/', (req, res, next) => {
   }
 });
 
+// POST add a new string to the array
+// req.body.string = "some-string"
+// return = { strings: [{id, item}...]}
 router.post('/', (req, res, next) => {
   try {
     const newString = req.body.string;
