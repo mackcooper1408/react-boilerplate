@@ -54,7 +54,9 @@ export function AddStringsPage({
           onChange={handleChange}
           value={stringData}
         />
-        <Button type="submit">submit</Button>
+        <Button type="submit" disabled={!stringData}>
+          submit
+        </Button>
       </Form>
     </div>
   );

@@ -10,7 +10,7 @@ const Button = styled.button`
   border-radius: 5px;
   cursor: pointer;
   transition: all 0.2s;
-  &:hover {
+  &:hover:not([disabled]) {
     transform: scale(1.1);
     background-color: grey;
     color: white;
