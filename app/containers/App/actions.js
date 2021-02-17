@@ -51,7 +51,7 @@ export function stringsLoadingError(error) {
 }
 
 /**
- * add a string, this action starts the request saga
+ * Add a string, this action starts the request saga
  *
  * @return {object} An action object with a type of ADD_STRING
  */

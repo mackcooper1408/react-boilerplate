@@ -1,16 +1,13 @@
 /*
  * AddStringsPage Reducer
  *
- * The reducer takes care of our data. Using actions, we can
- * update our application state. To add a new action,
- * add it to the switch statement in the reducer function
- *
+ * handles changes in the add string page form
  */
 
 import produce from 'immer';
 import { CHANGE_STRING_DATA } from './constants';
 
-// The initial state of the App
+// The initial state of the add strings page form
 export const initialState = {
   string: '',
 };

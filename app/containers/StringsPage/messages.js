@@ -1,7 +1,7 @@
 /*
- * HomePage Messages
+ * StringsPage Messages
  *
- * This contains all the text for the HomePage container.
+ * This contains all the text for the StringsPage container.
  */
 import { defineMessages } from 'react-intl';
 
