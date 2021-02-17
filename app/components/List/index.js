@@ -6,15 +6,9 @@ import Ul from './Ul';
 
 function List({ items, component }) {
   const ComponentToRender = component;
-  let content = <div />;
-
-  // If we have item, render them
-  if (items) {
-    content = items.map(item => <ComponentToRender key={item.id} {...item} />);
-  } else {
-    // Otherwise render a single component
-    content = <ComponentToRender />;
-  }
+  const content = items.map(item => (
+    <ComponentToRender key={item.id} {...item} />
+  ));
 
   return (
     <Wrapper>
@@ -25,7 +19,7 @@ function List({ items, component }) {
 
 List.propTypes = {
   component: PropTypes.elementType.isRequired,
-  items: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
+  items: PropTypes.array.isRequired,
 };
 
 export default List;
